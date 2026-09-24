@@ -10,7 +10,14 @@
 <meta property="og:title" content="М-АВТОИМПОРТ — Премиальный импорт автомобилей под ключ">
 <meta property="og:description" content="Подбор, логистика, таможня и документы. Один договор, прозрачная сделка — от покупки за рубежом до передачи авто в России.">
 <meta property="og:url" content="https://www.m-autoimport.com/">
+<meta property="og:site_name" content="М-АВТОИМПОРТ">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://yashkinf-eng.github.io/m-autoimport-site/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="М-АВТОИМПОРТ — премиальные автомобили из-за рубежа под ключ">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#131519">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23131519'/%3E%3Ctext x='50' y='72' font-family='Arial,sans-serif' font-size='66' font-weight='bold' text-anchor='middle' fill='%23C6A768'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +47,7 @@ body{
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
 ::selection{background:var(--gold);color:var(--ink);}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
 .mono{font-family:'JetBrains Mono',monospace;}
@@ -68,8 +76,11 @@ header.scrolled{background:rgba(16,18,22,.86);backdrop-filter:blur(14px);border-
 .navlinks a{font-size:14.5px;color:var(--steel);transition:.2s;font-weight:500;}
 .navlinks a:hover{color:var(--platinum);}
 .nav-cta{display:flex;align-items:center;gap:18px;}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:0;border-radius:8px;}
 .burger span{width:24px;height:2px;background:var(--platinum);transition:.3s;}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:170px 0 90px;overflow:hidden;}
@@ -169,6 +180,16 @@ section.block{padding:96px 0;position:relative;}
 .form-err{display:none;background:rgba(200,90,80,.10);border:1px solid #b8524a;border-radius:10px;padding:14px 16px;
   font-size:14px;color:#e2a49d;margin-top:14px;line-height:1.5;}
 .btn[disabled]{opacity:.6;cursor:default;transform:none;}
+.consent{display:flex;gap:12px;align-items:flex-start;margin:4px 0 6px;font-size:13px;line-height:1.5;color:var(--steel);cursor:pointer;}
+.consent input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:20px;height:20px;margin-top:0;
+  border:1px solid var(--line);border-radius:6px;background:var(--ink);cursor:pointer;display:grid;place-content:center;transition:.2s;}
+.consent input::before{content:"";width:10px;height:5px;border:2px solid var(--ink);border-top:0;border-right:0;
+  transform:translateY(-1px) rotate(-45deg);opacity:0;transition:.15s;}
+.consent input:hover{border-color:var(--gold);}
+.consent input:checked{background:var(--gold);border-color:var(--gold);}
+.consent input:checked::before{opacity:1;}
+.consent a,.form .fineprint a{color:var(--gold-soft);text-decoration:underline;text-decoration-color:rgba(230,210,162,.4);text-underline-offset:3px;}
+.consent a:hover,.form .fineprint a:hover{text-decoration-color:var(--gold-soft);}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
@@ -182,6 +203,12 @@ footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
 .copyright{margin-top:44px;padding-top:24px;border-top:1px solid var(--line-soft);
   font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;color:var(--steel-dim);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.copyright a{transition:.2s;}
+.copyright a:hover{color:var(--gold-soft);}
+
+/* ---------- mobile contact bar ---------- */
+.mbar{display:none;}
+.mbar svg{flex:0 0 auto;}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1);}
@@ -200,6 +227,15 @@ footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
   .hero{padding:130px 0 70px;}
   section.block{padding:70px 0;}
   .hero .ghost{font-size:280px;right:-30px;}
+  .spec-strip{flex-direction:column;gap:10px;}
+  .spec-strip span{border-right:none;padding-right:0;margin-right:0;display:flex;align-items:flex-start;gap:12px;}
+  .spec-strip span::before{content:"";flex:0 0 auto;width:5px;height:5px;margin-top:6px;background:var(--gold);transform:rotate(45deg);}
+  .mbar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:90;
+    padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+    background:rgba(16,18,22,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-top:1px solid var(--line-soft);}
+  .mbar .btn{flex-direction:column;justify-content:center;gap:4px;padding:8px 4px;font-size:12.5px;border-radius:12px;}
+  body{padding-bottom:calc(80px + env(safe-area-inset-bottom));}
 }
 @media(max-width:520px){
   .steps{grid-template-columns:1fr;}
@@ -226,7 +262,7 @@ footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
     </nav>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-gold">Рассчитать стоимость</a>
-      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -243,7 +279,7 @@ footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
       <a href="#process" class="btn btn-ghost">Как это работает</a>
     </div>
     <div class="spec-strip">
-      <span>Европа · Азия · Америка · Ближний Восток</span>
+      <span>Европа · Азия · Америка · Ближний&nbsp;Восток</span>
       <span>Физлица и бизнес</span>
       <span>Цена и сроки в договоре</span>
     </div>
@@ -405,22 +441,25 @@ footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
           <div class="qline"><span class="qk">Сайт</span><a class="qv gold" href="https://www.m-autoimport.com">m-autoimport.com</a></div>
           <div class="qline"><span class="qk">Телефон</span><a class="qv" href="tel:+79363137757">+7 936 313-77-57</a></div>
           <div class="qline"><span class="qk">E-mail</span><a class="qv" href="mailto:mail@m-autoimport.com">mail@m-autoimport.com</a></div>
-          <div class="qline"><span class="qk">WhatsApp</span><a class="qv" href="https://wa.me/79363137757">+7 936 313-77-57</a></div>
-          <div class="qline"><span class="qk">Telegram</span><a class="qv" href="https://t.me/feelthebit">@feelthebit</a></div>
+          <div class="qline"><span class="qk">WhatsApp</span><a class="qv" href="https://wa.me/79363137757" target="_blank" rel="noopener">+7 936 313-77-57</a></div>
+          <div class="qline"><span class="qk">Telegram</span><a class="qv" href="https://t.me/feelthebit" target="_blank" rel="noopener">@feelthebit</a></div>
         </div>
       </div>
-      <div class="form reveal">
+      <form class="form reveal" id="lead-form" novalidate>
         <h3>Заявка на расчёт</h3>
-        <div class="field"><label>Имя *</label><input id="f-name" type="text" placeholder="Как к вам обращаться"></div>
-        <div class="field"><label>Телефон или мессенджер *</label><input id="f-phone" type="text" placeholder="+7 ..."></div>
-        <div class="field"><label>Автомобиль / бюджет</label><input id="f-car" type="text" placeholder="Марка, модель, ориентир по цене"></div>
-        <div class="field"><label>Комментарий</label><textarea id="f-msg" placeholder="Комплектация, сроки, пожелания"></textarea></div>
+        <div class="field"><label for="f-name">Имя *</label><input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Как к вам обращаться"></div>
+        <div class="field"><label for="f-phone">Телефон или мессенджер *</label><input id="f-phone" name="phone" type="text" autocomplete="tel" required placeholder="+7 ..."></div>
+        <div class="field"><label for="f-car">Автомобиль / бюджет</label><input id="f-car" name="car" type="text" placeholder="Марка, модель, ориентир по цене"></div>
+        <div class="field"><label for="f-msg">Комментарий</label><textarea id="f-msg" name="message" placeholder="Комплектация, сроки, пожелания"></textarea></div>
         <input id="f-hp" type="text" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
-        <button class="btn btn-gold" id="submit">Отправить заявку</button>
-        <div class="form-ok" id="form-ok"></div>
-        <div class="form-err" id="form-err"></div>
-        <p class="fineprint">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Заявка приходит на почту mail@m-autoimport.com.</p>
-      </div>
+        <label class="consent"><input type="checkbox" id="f-consent" name="consent" required><span>Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a></span></label>
+        <button class="btn btn-gold" id="submit" type="submit">Отправить заявку</button>
+        <div aria-live="polite">
+          <div class="form-ok" id="form-ok"></div>
+          <div class="form-err" id="form-err"></div>
+        </div>
+        <p class="fineprint">Как мы обращаемся с данными — в <a href="privacy.html" target="_blank" rel="noopener">Политике обработки персональных данных</a>. Заявка приходит на почту mail@m-autoimport.com.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -446,17 +485,25 @@ footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
           <a href="https://www.m-autoimport.com">m-autoimport.com</a>
           <a href="tel:+79363137757">+7 936 313-77-57</a>
           <a href="mailto:mail@m-autoimport.com">mail@m-autoimport.com</a>
-          <a href="https://wa.me/79363137757">WhatsApp</a>
-          <a href="https://t.me/feelthebit">Telegram — @feelthebit</a>
+          <a href="https://wa.me/79363137757" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://t.me/feelthebit" target="_blank" rel="noopener">Telegram — @feelthebit</a>
         </div>
       </div>
     </div>
     <div class="copyright">
       <span>© 2026 М-АВТОИМПОРТ. Все права защищены.</span>
+      <a href="privacy.html">Политика обработки персональных данных</a>
       <span>Premium Car Import</span>
     </div>
   </div>
 </footer>
+
+<!-- ================= MOBILE CONTACT BAR ================= -->
+<aside class="mbar" aria-label="Быстрая связь">
+  <a class="btn btn-gold" href="tel:+79266051737" aria-label="Позвонить: +7 926 605-17-37"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Позвонить</a>
+  <a class="btn btn-ghost" href="https://wa.me/79266051737" target="_blank" rel="noopener" aria-label="WhatsApp: +7 926 605-17-37"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</a>
+  <a class="btn btn-ghost" href="https://t.me/feelthebit" target="_blank" rel="noopener" aria-label="Telegram: @feelthebit"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</a>
+</aside>
 
 <script>
 // header scroll state
@@ -465,8 +512,14 @@ addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>20));
 
 // mobile menu
 const burger=document.getElementById('burger'), menu=document.getElementById('menu');
-burger.addEventListener('click',()=>menu.classList.toggle('open'));
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const setMenu=open=>{
+  menu.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded',open);
+  burger.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
+};
+burger.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){setMenu(false);burger.focus();}});
 
 // reveal on scroll
 const io=new IntersectionObserver((es)=>{
@@ -480,21 +533,28 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(
 const WEB3FORMS_KEY='c0ac5c08-ce1b-490d-a2fa-b96e903cabdb';
 const FALLBACK_EMAIL='mail@m-autoimport.com';
 
+const form=document.getElementById('lead-form');
 const sbtn=document.getElementById('submit');
+const consent=document.getElementById('f-consent');
 const okBox=document.getElementById('form-ok');
 const errBox=document.getElementById('form-err');
 const val=id=>document.getElementById(id).value.trim();
+const fail=(text,field)=>{errBox.textContent=text;errBox.style.display='block';if(field)field.focus();};
 
-sbtn.addEventListener('click',async()=>{
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(sbtn.disabled)return;                                       // заявка уже отправляется
   const name=val('f-name'),phone=val('f-phone'),car=val('f-car'),msg=val('f-msg');
   okBox.style.display='none';errBox.style.display='none';
   if(document.getElementById('f-hp').value)return;               // honeypot: бот
-  if(!name||!phone){errBox.textContent='Заполните имя и телефон.';errBox.style.display='block';return;}
+  if(!name)return fail('Укажите, как к вам обращаться.',document.getElementById('f-name'));
+  if(!phone)return fail('Укажите телефон или мессенджер для связи.',document.getElementById('f-phone'));
+  if(!consent.checked)return fail('Отметьте согласие на обработку персональных данных — без него мы не можем принять заявку.',consent);
 
   // запасной вариант, пока не вставлен ключ Web3Forms
   if(!WEB3FORMS_KEY||WEB3FORMS_KEY.indexOf('PASTE')===0){
-    const body=`Имя: ${name}%0D%0AТелефон/мессенджер: ${phone}%0D%0AАвтомобиль/бюджет: ${car}%0D%0AКомментарий: ${msg}`;
-    window.location.href=`mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent('Заявка на расчёт — М-АВТОИМПОРТ')}&body=${body}`;
+    const body=[`Имя: ${name}`,`Телефон/мессенджер: ${phone}`,`Автомобиль/бюджет: ${car}`,`Комментарий: ${msg}`].join('\r\n');
+    window.location.href=`mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent('Заявка на расчёт — М-АВТОИМПОРТ')}&body=${encodeURIComponent(body)}`;
     okBox.textContent='Открылось письмо с заявкой — отправьте его, и мы свяжемся с вами.';okBox.style.display='block';return;
   }
 
@@ -503,15 +563,16 @@ sbtn.addEventListener('click',async()=>{
     const r=await fetch('https://api.web3forms.com/submit',{
       method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
       body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'Заявка на расчёт — М-АВТОИМПОРТ',
-        from_name:'Сайт М-АВТОИМПОРТ',Имя:name,Телефон:phone,'Автомобиль/бюджет':car,Комментарий:msg})
+        from_name:'Сайт М-АВТОИМПОРТ',Имя:name,Телефон:phone,'Автомобиль/бюджет':car,Комментарий:msg,
+        'Согласие на обработку ПДн':'дано — отмечено в форме на сайте'})
     });
     const d=await r.json();
     if(d.success){
       okBox.textContent='Спасибо! Заявка отправлена — свяжемся с вами в ближайшее время.';okBox.style.display='block';
-      ['f-name','f-phone','f-car','f-msg'].forEach(i=>document.getElementById(i).value='');
+      form.reset();
     }else throw new Error(d.message||'error');
-  }catch(e){
-    errBox.textContent='Не удалось отправить. Напишите на mail@m-autoimport.com или в Telegram @feelthebit.';errBox.style.display='block';
+  }catch(err){
+    fail('Не удалось отправить. Напишите на mail@m-autoimport.com или в Telegram @feelthebit.');
   }finally{sbtn.disabled=false;sbtn.textContent=t;}
 });
 </script>
