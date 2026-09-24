@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>М-АВТОИМПОРТ — Премиальный импорт автомобилей под ключ</title>
+<meta name="description" content="Импорт автомобилей премиум-класса из Европы, Азии, Америки и Ближнего Востока. Полный цикл: подбор, логистика, таможня, ЭПТС, учёт. Прозрачно, с фиксацией цены и сроков в договоре.">
+<link rel="canonical" href="https://www.m-autoimport.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="М-АВТОИМПОРТ — Премиальный импорт автомобилей под ключ">
+<meta property="og:description" content="Подбор, логистика, таможня и документы. Один договор, прозрачная сделка — от покупки за рубежом до передачи авто в России.">
+<meta property="og:url" content="https://www.m-autoimport.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23131519'/%3E%3Ctext x='50' y='72' font-family='Arial,sans-serif' font-size='66' font-weight='bold' text-anchor='middle' fill='%23C6A768'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#131519;
+  --ink-2:#1A1D24;
+  --ink-3:#22262F;
+  --line:#2B303A;
+  --line-soft:#21252d;
+  --gold:#C6A768;
+  --gold-soft:#E6D2A2;
+  --platinum:#ECE9E2;
+  --steel:#9AA1AB;
+  --steel-dim:#6E7580;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Golos Text',sans-serif;
+  background:var(--ink);color:var(--platinum);
+  -webkit-font-smoothing:antialiased;line-height:1.55;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+::selection{background:var(--gold);color:var(--ink);}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:12px;}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);opacity:.7;}
+h1,h2,h3{font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--platinum);}
+.accent{color:var(--gold-soft);}
+.gold{color:var(--gold);}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Manrope';font-weight:700;font-size:15px;
+  padding:14px 26px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:.25s;white-space:nowrap;}
+.btn-gold{background:var(--gold);color:#171a1f;}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);}
+.btn-ghost{border-color:var(--line);color:var(--platinum);background:transparent;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;
+  background:rgba(19,21,25,0);border-bottom:1px solid transparent;}
+header.scrolled{background:rgba(16,18,22,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+.brand{font-family:'Manrope';font-weight:800;font-size:21px;letter-spacing:.01em;}
+.brand .m{color:var(--gold);}
+.navlinks{display:flex;gap:34px;align-items:center;}
+.navlinks a{font-size:14.5px;color:var(--steel);transition:.2s;font-weight:500;}
+.navlinks a:hover{color:var(--platinum);}
+.nav-cta{display:flex;align-items:center;gap:18px;}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.burger span{width:24px;height:2px;background:var(--platinum);transition:.3s;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:170px 0 90px;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;
+  background:radial-gradient(90% 70% at 78% 0%, rgba(198,168,104,.10), transparent 55%);}
+.hero .ghost{position:absolute;right:-60px;top:40px;font-family:'Manrope';font-weight:800;font-size:460px;
+  line-height:.7;color:rgba(255,255,255,.018);z-index:0;pointer-events:none;user-select:none;}
+.hero .wrap{position:relative;z-index:2;}
+.hero h1{font-size:clamp(38px,6vw,72px);max-width:14ch;margin:26px 0 0;}
+.hero p.sub{font-size:clamp(16px,2vw,19px);color:var(--steel);max-width:60ch;margin-top:26px;font-weight:400;}
+.hero-cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:56px;border-top:1px solid var(--line);padding-top:22px;gap:0;}
+.spec-strip span{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--steel);padding-right:24px;margin-right:24px;border-right:1px solid var(--line);}
+.spec-strip span:last-child{border-right:none;}
+
+/* ---------- section base ---------- */
+section.block{padding:96px 0;position:relative;}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:52px;flex-wrap:wrap;}
+.sec-head h2{font-size:clamp(28px,4vw,42px);max-width:18ch;margin-top:18px;}
+.sec-index{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--steel-dim);}
+
+/* ---------- pillars / about ---------- */
+.about-lead{font-size:clamp(16px,2vw,19px);color:var(--steel);max-width:70ch;font-weight:400;}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;}
+.pillar{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:30px 28px 32px;transition:.25s;}
+.pillar:hover{border-color:rgba(198,168,104,.5);transform:translateY(-4px);}
+.pillar .pn{font-family:'JetBrains Mono';font-size:12px;letter-spacing:.2em;color:var(--gold);}
+.pillar h3{font-size:21px;font-weight:700;margin:18px 0 12px;}
+.pillar p{font-size:15px;color:var(--steel);font-weight:400;}
+
+/* ---------- regions ---------- */
+.regions{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.region{display:flex;gap:22px;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:28px 30px;transition:.25s;}
+.region:hover{border-color:rgba(198,168,104,.5);}
+.region .rk{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.16em;color:var(--gold);padding-top:5px;white-space:nowrap;}
+.region h3{font-size:19px;font-weight:700;margin-bottom:8px;}
+.region p{font-size:14.5px;color:var(--steel);font-weight:400;}
+
+/* ---------- capabilities ---------- */
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 56px;}
+.cap{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-bottom:1px solid var(--line-soft);}
+.cap .dot{margin-top:9px;flex:0 0 auto;width:8px;height:8px;background:var(--gold);transform:rotate(45deg);}
+.cap b{font-family:'Manrope';font-weight:700;font-size:17px;display:block;margin-bottom:5px;}
+.cap span{font-size:14.5px;color:var(--steel);font-weight:400;}
+
+/* ---------- process ---------- */
+.process{background:var(--ink-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.step{background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:26px 22px;position:relative;overflow:hidden;transition:.25s;}
+.step::before{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:linear-gradient(90deg,var(--gold),transparent);}
+.step:hover{transform:translateY(-4px);border-color:rgba(198,168,104,.5);}
+.step .sn{font-family:'Manrope';font-weight:800;font-size:30px;color:var(--gold);}
+.step h3{font-size:17px;font-weight:700;margin:14px 0 8px;}
+.step p{font-size:13.5px;color:var(--steel);font-weight:400;}
+
+/* ---------- business / guarantees rows ---------- */
+.rows{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;}
+.row{display:flex;gap:22px;align-items:baseline;padding:22px 4px;border-bottom:1px solid var(--line-soft);}
+.row .rk{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);flex:0 0 128px;}
+.row p{font-size:15px;color:var(--steel);font-weight:400;}
+.row p b{font-family:'Manrope';color:var(--platinum);font-weight:600;}
+
+/* ---------- cooperation ---------- */
+.coop{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.ccard{background:linear-gradient(180deg,var(--ink-2),var(--ink));border:1px solid var(--line);border-radius:16px;padding:30px 30px 34px;transition:.25s;}
+.ccard:hover{border-color:rgba(198,168,104,.5);transform:translateY(-4px);}
+.ccard .cardk{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.2em;color:var(--gold);}
+.ccard h3{font-size:22px;font-weight:700;margin:16px 0 10px;}
+.ccard p{font-size:15px;color:var(--steel);font-weight:400;}
+
+/* ---------- CTA / form ---------- */
+.cta{position:relative;overflow:hidden;}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 20% 0%, rgba(198,168,104,.10), transparent 60%);}
+.cta .wrap{position:relative;z-index:2;}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.cta h2{font-size:clamp(30px,4.5vw,50px);}
+.cta .lead{font-size:18px;color:var(--steel);margin-top:22px;max-width:44ch;font-weight:400;}
+.quick{margin-top:34px;display:flex;flex-direction:column;gap:2px;}
+.qline{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);}
+.qline .qk{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-dim);}
+.qline .qv{font-family:'Manrope';font-weight:700;font-size:17px;}
+.qline .qv.dim{color:var(--steel-dim);font-weight:500;font-size:15px;}
+
+.form{background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:34px 32px;}
+.form h3{font-size:20px;font-weight:700;margin-bottom:22px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-bottom:8px;}
+.field input,.field textarea{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:10px;
+  padding:13px 15px;color:var(--platinum);font-family:'Golos Text';font-size:15px;transition:.2s;}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+.field textarea{resize:vertical;min-height:82px;}
+.form .btn-gold{width:100%;justify-content:center;margin-top:8px;}
+.form .fineprint{font-size:12px;color:var(--steel-dim);margin-top:14px;line-height:1.5;}
+.form-ok{display:none;background:rgba(198,168,104,.1);border:1px solid var(--gold);border-radius:10px;padding:14px 16px;
+  font-size:14px;color:var(--gold-soft);margin-top:14px;line-height:1.5;}
+.form-err{display:none;background:rgba(200,90,80,.10);border:1px solid #b8524a;border-radius:10px;padding:14px 16px;
+  font-size:14px;color:#e2a49d;margin-top:14px;line-height:1.5;}
+.btn[disabled]{opacity:.6;cursor:default;transform:none;}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line-soft);padding:56px 0 40px;}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start;}
+.foot-brand .brand{font-size:24px;margin-bottom:12px;}
+.foot-brand p{font-size:13.5px;color:var(--steel-dim);max-width:38ch;}
+.foot-cols{display:flex;gap:64px;flex-wrap:wrap;}
+.foot-col h4{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-dim);margin-bottom:16px;}
+.foot-col a,.foot-col span{display:block;font-size:14px;color:var(--steel);margin-bottom:10px;transition:.2s;}
+.foot-col a:hover{color:var(--gold-soft);}
+.copyright{margin-top:44px;padding-top:24px;border-top:1px solid var(--line-soft);
+  font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;color:var(--steel-dim);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .navlinks,.nav-cta .btn{display:none;}
+  .burger{display:flex;}
+  .navlinks.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;
+    background:rgba(16,18,22,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:8px 0;}
+  .navlinks.open a{padding:16px 28px;width:100%;border-bottom:1px solid var(--line-soft);}
+  .pillars,.regions,.caps,.rows,.coop,.cta-grid{grid-template-columns:1fr;gap:16px;}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .cta-grid{gap:40px;}
+  .hero{padding:130px 0 70px;}
+  section.block{padding:70px 0;}
+  .hero .ghost{font-size:280px;right:-30px;}
+}
+@media(max-width:520px){
+  .steps{grid-template-columns:1fr;}
+  .row .rk{flex-basis:96px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{transition:none;opacity:1;transform:none;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="hdr">
+  <div class="wrap nav">
+    <div class="brand"><span class="m">М</span>-АВТОИМПОРТ</div>
+    <nav class="navlinks" id="menu">
+      <a href="#about">О компании</a>
+      <a href="#services">Возможности</a>
+      <a href="#process">Как работаем</a>
+      <a href="#business">Бизнесу</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-gold">Рассчитать стоимость</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="ghost">М</div>
+  <div class="wrap">
+    <span class="eyebrow">Premium Car Import · под ключ</span>
+    <h1>Премиальные автомобили из-за рубежа — <span class="accent">под ключ</span></h1>
+    <p class="sub">Подбор, логистика, таможенное оформление и документы. Один договор, один ответственный менеджер и прозрачная сделка — от покупки за рубежом до передачи автомобиля в России.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-gold">Оставить заявку</a>
+      <a href="#process" class="btn btn-ghost">Как это работает</a>
+    </div>
+    <div class="spec-strip">
+      <span>Европа · Азия · Америка · Ближний Восток</span>
+      <span>Физлица и бизнес</span>
+      <span>Цена и сроки в договоре</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">О компании</span>
+        <h2>Импорт автомобилей полного цикла</h2>
+      </div>
+      <div class="sec-index">01 / 07</div>
+    </div>
+    <p class="about-lead reveal">М-АВТОИМПОРТ поставляет автомобили премиум-класса из Европы, Азии, Америки и Ближнего Востока. Мы берём на себя весь процесс — от поиска нужной машины за рубежом до передачи клиенту в России с полным пакетом документов.</p>
+    <div class="pillars">
+      <div class="pillar reveal"><div class="pn">01</div><h3>Полный цикл</h3><p>Подбор, доставка, таможня, ЭПТС и учёт — в одном окне и по одному договору.</p></div>
+      <div class="pillar reveal"><div class="pn">02</div><h3>Прозрачность</h3><p>Цена и сроки зафиксированы в договоре. Никаких скрытых платежей и доплат.</p></div>
+      <div class="pillar reveal"><div class="pn">03</div><h3>Физлица и бизнес</h3><p>Работаем с частными клиентами, компаниями, лизингом и под госзакупки.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGIONS ================= -->
+<section class="block" id="regions">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">География поставок</span>
+        <h2>Возим оттуда, где есть нужный автомобиль</h2>
+      </div>
+      <div class="sec-index">02 / 07</div>
+    </div>
+    <div class="regions">
+      <div class="region reveal"><div class="rk">ЕВРОПА</div><div><h3>Германия и рынки ЕС</h3><p>Официальные дилеры, премиальные комплектации, помощь с возвратом европейского НДС, где применимо.</p></div></div>
+      <div class="region reveal"><div class="rk">АЗИЯ</div><div><h3>Корея · Китай · Япония</h3><p>Широкий выбор и выгодные цены — от массовых моделей до электромобилей и гибридов.</p></div></div>
+      <div class="region reveal"><div class="rk">АМЕРИКА</div><div><h3>США</h3><p>Редкие версии, мощные комплектации и модели, которых нет на локальном рынке.</p></div></div>
+      <div class="region reveal"><div class="rk">В. ВОСТОК</div><div><h3>ОАЭ</h3><p>Премиум- и лимитированные автомобили с прозрачным происхождением.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES / CAPABILITIES ================= -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Возможности</span>
+        <h2>Что мы делаем для клиента</h2>
+      </div>
+      <div class="sec-index">03 / 07</div>
+    </div>
+    <div class="caps">
+      <div class="cap reveal"><div class="dot"></div><div><b>Находим редкие автомобили</b><span>Ищем лимитированные модели и комплектации — даже те, которых нет в свободной продаже.</span></div></div>
+      <div class="cap reveal"><div class="dot"></div><div><b>Работаем с официальными дилерами</b><span>Прозрачное происхождение авто и корректный комплект документов.</span></div></div>
+      <div class="cap reveal"><div class="dot"></div><div><b>Показываем авто до покупки</b><span>Полный фото- и видеоотчёт реального состояния автомобиля на месте.</span></div></div>
+      <div class="cap reveal"><div class="dot"></div><div><b>Помогаем вернуть европейский НДС</b><span>Оформляем возврат там, где это применимо, — реальная экономия на сделке.</span></div></div>
+      <div class="cap reveal"><div class="dot"></div><div><b>Работаем с физлицами и бизнесом</b><span>Под личные цели, под автопарк компании и под тендерные поставки.</span></div></div>
+      <div class="cap reveal"><div class="dot"></div><div><b>Ведём сделку под ключ</b><span>Один договор и один ответственный менеджер на всех этапах.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="block process" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Как проходит сделка</span>
+        <h2>Полный цикл «под ключ»</h2>
+      </div>
+      <div class="sec-index">04 / 07</div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="sn">01</div><h3>Подбор</h3><p>Находим авто под задачу, бюджет и сроки.</p></div>
+      <div class="step reveal"><div class="sn">02</div><h3>Проверка</h3><p>Юридическая проверка и фото/видеоинспекция на месте.</p></div>
+      <div class="step reveal"><div class="sn">03</div><h3>Покупка</h3><p>Выкуп у официального дилера, цена зафиксирована в договоре.</p></div>
+      <div class="step reveal"><div class="sn">04</div><h3>Логистика</h3><p>Доставка морем или автовозом, страхование на всём пути.</p></div>
+      <div class="step reveal"><div class="sn">05</div><h3>Таможня</h3><p>Таможенное оформление и уплата всех платежей.</p></div>
+      <div class="step reveal"><div class="sn">06</div><h3>Документы</h3><p>Оформление электронного ПТС и СБКТС.</p></div>
+      <div class="step reveal"><div class="sn">07</div><h3>Учёт</h3><p>Помощь с постановкой на учёт в ГИБДД.</p></div>
+      <div class="step reveal"><div class="sn">08</div><h3>Передача</h3><p>Вручаем автомобиль клиенту с полным пакетом.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUSINESS ================= -->
+<section class="block" id="business">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Решения для бизнеса</span>
+        <h2>Удобно для компаний и ИП</h2>
+      </div>
+      <div class="sec-index">05 / 07</div>
+    </div>
+    <div class="rows">
+      <div class="row reveal"><div class="rk">НДС</div><p><b>Продажа с НДС.</b> Для баланса, бухучёта и налогового вычета.</p></div>
+      <div class="row reveal"><div class="rk">Лизинг</div><p><b>Оформление в лизинг.</b> Для юридических лиц и ИП.</p></div>
+      <div class="row reveal"><div class="rk">Кредит</div><p><b>Автокредит.</b> Через партнёрские банки на выгодных условиях.</p></div>
+      <div class="row reveal"><div class="rk">Госзакупки</div><p><b>44-ФЗ и 223-ФЗ.</b> Поставки для госструктур и бюджетных организаций.</p></div>
+      <div class="row reveal"><div class="rk">Автопарк</div><p><b>Комплектование парка.</b> Регулярные и объёмные поставки под спрос.</p></div>
+      <div class="row reveal"><div class="rk">Баланс</div><p><b>Постановка на баланс.</b> Полный и корректный комплект документов.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUARANTEES ================= -->
+<section class="block" id="guarantees">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Гарантии и прозрачность</span>
+        <h2>Прозрачно и без сюрпризов</h2>
+      </div>
+      <div class="sec-index">06 / 07</div>
+    </div>
+    <div class="rows">
+      <div class="row reveal"><div class="rk">Цена</div><p><b>Фиксация в договоре.</b> Никаких скрытых платежей и доплат.</p></div>
+      <div class="row reveal"><div class="rk">Сроки</div><p><b>Прописаны в договоре.</b> Фиксируем и соблюдаем этапы поставки.</p></div>
+      <div class="row reveal"><div class="rk">Отчёт</div><p><b>Фото и видео.</b> Реальное состояние авто до покупки.</p></div>
+      <div class="row reveal"><div class="rk">История</div><p><b>Чистота авто.</b> Проверка пробега, ДТП и залогов по открытым базам.</p></div>
+      <div class="row reveal"><div class="rk">Страховка</div><p><b>Защита на всём пути.</b> С момента покупки до передачи клиенту.</p></div>
+      <div class="row reveal"><div class="rk">Приватность</div><p><b>Персональный менеджер.</b> Конфиденциальность каждой сделки.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COOPERATION ================= -->
+<section class="block" id="coop">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Форматы сотрудничества</span>
+        <h2>Как мы работаем с партнёрами</h2>
+      </div>
+      <div class="sec-index">07 / 07</div>
+    </div>
+    <div class="coop">
+      <div class="ccard reveal"><div class="cardk">ФОРМАТ 01</div><h3>Разовая поставка</h3><p>Конкретный автомобиль под ваш запрос — от подбора до передачи с документами.</p></div>
+      <div class="ccard reveal"><div class="cardk">ФОРМАТ 02</div><h3>Регулярные поставки</h3><p>Постоянный поток автомобилей под ваш спрос на согласованных условиях.</p></div>
+      <div class="ccard reveal"><div class="cardk">ФОРМАТ 03</div><h3>Под автопарк</h3><p>Комплектование корпоративного парка партиями, с НДС и на баланс.</p></div>
+      <div class="ccard reveal"><div class="cardk">ФОРМАТ 04</div><h3>Под тендер</h3><p>Поставка под 44-ФЗ / 223-ФЗ «под ключ» с полным сопровождением.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA / FORM ================= -->
+<section class="block cta" id="contact">
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="reveal">
+        <span class="eyebrow">Контакты</span>
+        <h2>Обсудим ваш автомобиль</h2>
+        <p class="lead">Пришлите запрос — рассчитаем стоимость и сроки под конкретную модель и подготовим коммерческое предложение.</p>
+        <div class="quick">
+          <div class="qline"><span class="qk">Сайт</span><a class="qv gold" href="https://www.m-autoimport.com">m-autoimport.com</a></div>
+          <div class="qline"><span class="qk">Телефон</span><a class="qv" href="tel:+79363137757">+7 936 313-77-57</a></div>
+          <div class="qline"><span class="qk">E-mail</span><a class="qv" href="mailto:mail@m-autoimport.com">mail@m-autoimport.com</a></div>
+          <div class="qline"><span class="qk">WhatsApp</span><a class="qv" href="https://wa.me/79363137757">+7 936 313-77-57</a></div>
+          <div class="qline"><span class="qk">Telegram</span><a class="qv" href="https://t.me/feelthebit">@feelthebit</a></div>
+        </div>
+      </div>
+      <div class="form reveal">
+        <h3>Заявка на расчёт</h3>
+        <div class="field"><label>Имя *</label><input id="f-name" type="text" placeholder="Как к вам обращаться"></div>
+        <div class="field"><label>Телефон или мессенджер *</label><input id="f-phone" type="text" placeholder="+7 ..."></div>
+        <div class="field"><label>Автомобиль / бюджет</label><input id="f-car" type="text" placeholder="Марка, модель, ориентир по цене"></div>
+        <div class="field"><label>Комментарий</label><textarea id="f-msg" placeholder="Комплектация, сроки, пожелания"></textarea></div>
+        <input id="f-hp" type="text" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
+        <button class="btn btn-gold" id="submit">Отправить заявку</button>
+        <div class="form-ok" id="form-ok"></div>
+        <div class="form-err" id="form-err"></div>
+        <p class="fineprint">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Заявка приходит на почту mail@m-autoimport.com.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><span class="m">М</span>-АВТОИМПОРТ</div>
+        <p>Премиальный импорт автомобилей под ключ. Подбор, логистика, таможня и документы — прозрачно и по договору.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Разделы</h4>
+          <a href="#about">О компании</a>
+          <a href="#services">Возможности</a>
+          <a href="#process">Как работаем</a>
+          <a href="#business">Бизнесу</a>
+        </div>
+        <div class="foot-col">
+          <h4>Контакты</h4>
+          <a href="https://www.m-autoimport.com">m-autoimport.com</a>
+          <a href="tel:+79363137757">+7 936 313-77-57</a>
+          <a href="mailto:mail@m-autoimport.com">mail@m-autoimport.com</a>
+          <a href="https://wa.me/79363137757">WhatsApp</a>
+          <a href="https://t.me/feelthebit">Telegram — @feelthebit</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 М-АВТОИМПОРТ. Все права защищены.</span>
+      <span>Premium Car Import</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// header scroll state
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>20));
+
+// mobile menu
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+// reveal on scroll
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el);});
+
+// ===== ФОРМА ЗАЯВКИ =====
+// 1) Получите бесплатный ключ на https://web3forms.com (введите mail@m-autoimport.com — ключ придёт на почту)
+// 2) Вставьте его в строку ниже вместо PASTE-YOUR-ACCESS-KEY. Пока ключ не вставлен — форма открывает письмо в почтовом клиенте.
+const WEB3FORMS_KEY='c0ac5c08-ce1b-490d-a2fa-b96e903cabdb';
+const FALLBACK_EMAIL='mail@m-autoimport.com';
+
+const sbtn=document.getElementById('submit');
+const okBox=document.getElementById('form-ok');
+const errBox=document.getElementById('form-err');
+const val=id=>document.getElementById(id).value.trim();
+
+sbtn.addEventListener('click',async()=>{
+  const name=val('f-name'),phone=val('f-phone'),car=val('f-car'),msg=val('f-msg');
+  okBox.style.display='none';errBox.style.display='none';
+  if(document.getElementById('f-hp').value)return;               // honeypot: бот
+  if(!name||!phone){errBox.textContent='Заполните имя и телефон.';errBox.style.display='block';return;}
+
+  // запасной вариант, пока не вставлен ключ Web3Forms
+  if(!WEB3FORMS_KEY||WEB3FORMS_KEY.indexOf('PASTE')===0){
+    const body=`Имя: ${name}%0D%0AТелефон/мессенджер: ${phone}%0D%0AАвтомобиль/бюджет: ${car}%0D%0AКомментарий: ${msg}`;
+    window.location.href=`mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent('Заявка на расчёт — М-АВТОИМПОРТ')}&body=${body}`;
+    okBox.textContent='Открылось письмо с заявкой — отправьте его, и мы свяжемся с вами.';okBox.style.display='block';return;
+  }
+
+  sbtn.disabled=true;const t=sbtn.textContent;sbtn.textContent='Отправляем…';
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'Заявка на расчёт — М-АВТОИМПОРТ',
+        from_name:'Сайт М-АВТОИМПОРТ',Имя:name,Телефон:phone,'Автомобиль/бюджет':car,Комментарий:msg})
+    });
+    const d=await r.json();
+    if(d.success){
+      okBox.textContent='Спасибо! Заявка отправлена — свяжемся с вами в ближайшее время.';okBox.style.display='block';
+      ['f-name','f-phone','f-car','f-msg'].forEach(i=>document.getElementById(i).value='');
+    }else throw new Error(d.message||'error');
+  }catch(e){
+    errBox.textContent='Не удалось отправить. Напишите на mail@m-autoimport.com или в Telegram @feelthebit.';errBox.style.display='block';
+  }finally{sbtn.disabled=false;sbtn.textContent=t;}
+});
+</script>
+</body>
+</html>
